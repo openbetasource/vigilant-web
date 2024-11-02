@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Väderprognos App - StarBloat</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>StarBloat</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Hem</a></li>
+                    <li><a href="../index.html#about">Om</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="app-content">
+            <div class="weather-app">
+                <div class="weather-header">
+                    <h2>Väderprognos</h2>
+                    <div class="location-search">
+                        <input type="text" placeholder="Sök plats..." value="Stockholm">
+                        <button>Sök</button>
+                    </div>
+                </div>
+
+                <div class="weather-display">
+                    <div class="current-weather">
+                        <div class="temperature">12°C</div>
+                        <div class="weather-icon">⛅</div>
+                        <div class="weather-desc">Delvis molnigt</div>
+                        <div class="location">Stockholm, Sverige</div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="label">Luftfuktighet</span>
+                            <span class="value">65%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Vindstyrka</span>
+                            <span class="value">5 m/s</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Lufttryck</span>
+                            <span class="value">1015 hPa</span>
+                        </div>
+                    </div>
+
+                    <div class="forecast">
+                        <h3>5-dagars prognos</h3>
+                        <div class="forecast-items">
+                            <div class="forecast-item">
+                                <div class="day">Mån</div>
+                                <div class="icon">🌤️</div>
+                                <div class="temp">14°C</div>
+                            </div>
+                            <div class="forecast-item">
+                                <div class="day">Tis</div>
+                                <div class="icon">🌧️</div>
+                                <div class="temp">11°C</div>
+                            </div>
+                            <div class="forecast-item">
+                                <div class="day">Ons</div>
+                                <div class="icon">⛈️</div>
+                                <div class="temp">10°C</div>
+                            </div>
+                            <div class="forecast-item">
+                                <div class="day">Tor</div>
+                                <div class="icon">🌥️</div>
+                                <div class="temp">13°C</div>
+                            </div>
+                            <div class="forecast-item">
+                                <div class="day">Fre</div>
+                                <div class="icon">☀️</div>
+                                <div class="temp">15°C</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html> 
