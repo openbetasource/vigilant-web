@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Change the title for each post -->
-    <title>My First News Post - StarBloat</title>
+    <title>News Post Title - StarBloat</title>
     <link rel="stylesheet" href="../../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="post-type" content="news"> <!-- Change to "news" for news posts -->
-    <meta name="post-date" content="November 2, 2024"> <!-- Update the date -->
-    <meta name="post-tags" content="information,news"> <!-- Comma-separated tags -->
-    <meta name="post-category" content="Information"> <!-- Main category -->
+    <!-- Change post-type to match your content (blog or news) -->
+    <meta name="post-type" content="news">
+    <meta name="post-date" content="November 2, 2024">
+    <meta name="post-category" content="Information">
     <meta name="post-preview" content="This is my first news post!">
 </head>
 <body>
@@ -20,19 +20,20 @@
             <nav>
                 <ul>
                     <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../index.html#about">About</a></li>
                     <li><a href="../../projects.html">Projects</a></li>
-                    <li><a href="../../blog.html">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
         <main class="post-content">
             <article>
-                <!-- Post content goes here -->
                 <h1>My First News Post</h1>
                 <div class="post-meta">
                     <span class="post-date">November 2, 2024</span>
-                    <span class="post-type">NEWS</span>
+                    <!-- This should match the post-type meta tag above -->
+                    <span class="post-type" data-type="news">NEWS</span>
                 </div>
                 
                 <div class="post-body">
@@ -60,5 +61,15 @@
             <p>© 2024 StarBloat. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        // Add this script to automatically set the correct post type
+        document.addEventListener('DOMContentLoaded', function() {
+            const postType = document.querySelector('meta[name="post-type"]').content;
+            const postTypeSpan = document.querySelector('.post-type');
+            postTypeSpan.textContent = postType.toUpperCase();
+            postTypeSpan.dataset.type = postType;
+        });
+    </script>
 </body>
 </html> 
