@@ -156,7 +156,8 @@ footer {
     background: #1a1a1a;
 }
 
-.placeholder-1 { background: linear-gradient(45deg, #64ffda22, #112240); }
+.placeholder-1 { background: linear-gradient(45deg, #87CEEB, #1E90FF); background-image: url('images/weather-app-preview.png'); background-size: cover; background-position: center; position: relative; }
+.placeholder-1::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(135, 206, 235, 0.3), rgba(30, 144, 255, 0.3)); }
 .placeholder-2 { background: linear-gradient(45deg, #ff64da22, #112240); }
 .placeholder-3 { background: linear-gradient(45deg, #64daff22, #112240); }
 
@@ -871,4 +872,43 @@ nav a.active {
     .forecast-items {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
+}
+
+/* Add these styles for weather app animations and error handling */
+.weather-display {
+    transition: opacity 0.3s ease;
+}
+
+.error-message {
+    background: #ff6b6b;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.weather-app input:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+.forecast-item {
+    transition: transform 0.3s ease;
+}
+
+.forecast-item:hover {
+    transform: translateY(-5px);
 } 
