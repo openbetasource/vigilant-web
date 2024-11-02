@@ -1,12 +1,12 @@
 :root {
     --primary: #E30613; /* K-bygg red */
     --secondary: #333333; /* Dark gray */
-    --background: #FFFFFF; /* White */
-    --header-bg: #8B0000; /* Dark red/brown header background */
-    --text: #333333; /* Dark gray text */
-    --text-light: #666666; /* Lighter gray text */
-    --border: #E5E5E5; /* Light gray border */
+    --background: #8B0000; /* K-bygg's brownish/red color */
+    --text: #FFFFFF; /* White text for better contrast */
+    --text-light: #E5E5E5; /* Light gray text */
+    --border: #9B1010; /* Slightly lighter than background for subtle borders */
     --hover: #B30510; /* Darker red for hover states */
+    --card-bg: #FFFFFF; /* White background for cards */
 }
 
 * {
@@ -31,7 +31,6 @@ body {
 }
 
 header {
-    background-color: var(--header-bg);
     padding: 2rem 0;
     margin-bottom: 2rem;
     width: 100%;
@@ -79,7 +78,7 @@ nav a:hover, nav a.active {
 .hero h2 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: var(--secondary);
+    color: var(--text);
 }
 
 .hero p {
@@ -137,12 +136,13 @@ footer {
 }
 
 .project-card {
-    background: var(--background);
+    background: var(--card-bg);
     border-radius: 8px;
     padding: 1.5rem;
     transition: transform 0.3s ease;
     box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
     border: 1px solid var(--border);
+    color: var(--secondary);
 }
 
 .project-card:hover {
@@ -163,13 +163,13 @@ footer {
 .placeholder-3 { background: linear-gradient(45deg, #64daff22, #112240); }
 
 .project-card h3 {
-    color: var(--text);
+    color: var(--secondary);
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
 .project-card p {
-    color: var(--text-light);
+    color: var(--secondary);
     margin-bottom: 1.5rem;
     font-size: 1rem;
 }
@@ -253,7 +253,7 @@ nav a.active {
 }
 
 .post-card {
-    background: var(--background);
+    background: var(--card-bg);
     border-radius: 8px;
     padding: 1.5rem;
     position: relative;
@@ -261,6 +261,7 @@ nav a.active {
     cursor: pointer;
     border: 1px solid var(--border);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: var(--secondary);
 }
 
 .post-card:hover {
@@ -299,13 +300,13 @@ nav a.active {
 }
 
 .post-card h3 {
-    color: var(--text);
+    color: var(--secondary);
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
 
 .post-card p {
-    color: var(--text-light);
+    color: var(--secondary);
     margin-bottom: 1.5rem;
 }
 
@@ -334,7 +335,7 @@ nav a.active {
 .hero h2 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: var(--secondary);
+    color: var(--text);
 }
 
 .hero p {
