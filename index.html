@@ -15,7 +15,6 @@
                 <ul>
                     <li><a href="index.html" class="active">Hem</a></li>
                     <li><a href="#about">Om</a></li>
-                    <li><a href="projects.html">Projekt</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
@@ -29,25 +28,45 @@
                 <p>Bygger min första webbplats och dokumenterar resan</p>
             </section>
 
-            <section class="post-controls">
-                <div class="sort-container">
-                    <select id="sortSelect">
-                        <option value="date-desc">Senaste först</option>
-                        <option value="date-asc">Äldsta först</option>
-                        <option value="title">Titel A-Ö</option>
-                        <option value="category">Kategori</option>
-                    </select>
-                </div>
+            <section class="projects">
+                <h2>Mina Projekt</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-image placeholder-1"></div>
+                        <h3>Väderprognos App</h3>
+                        <p>En snygg väderapplikation som ger realtidsuppdateringar och prognoser.</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>API</span>
+                            <span>Väder</span>
+                        </div>
+                        <a href="#" class="project-link">Kommer snart</a>
+                    </div>
 
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">Alla</button>
-                    <button class="filter-btn" data-filter="news">Nyheter</button>
-                    <button class="filter-btn" data-filter="blog">Blogg</button>
-                </div>
-            </section>
+                    <div class="project-card">
+                        <div class="project-image placeholder-2"></div>
+                        <h3>Uppgiftshanterare</h3>
+                        <p>Ett intuitivt system för att hantera uppgifter med prioritering och deadlines.</p>
+                        <div class="project-tags">
+                            <span>Vue.js</span>
+                            <span>Firebase</span>
+                            <span>Produktivitet</span>
+                        </div>
+                        <a href="#" class="project-link">Kommer snart</a>
+                    </div>
 
-            <section class="posts">
-                <!-- Inlägg laddas dynamiskt via JavaScript -->
+                    <div class="project-card">
+                        <div class="project-image placeholder-3"></div>
+                        <h3>Receptsökare</h3>
+                        <p>Hitta och spara dina favoritrecept med denna användarvänliga receptsökare.</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>Mat API</span>
+                            <span>Sök</span>
+                        </div>
+                        <a href="#" class="project-link">Kommer snart</a>
+                    </div>
+                </div>
             </section>
         </main>
 
@@ -55,7 +74,5 @@
             <p>© 2024 StarBloat. Alla rättigheter förbehållna.</p>
         </footer>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html> 
