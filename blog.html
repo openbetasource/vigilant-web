@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarBloat - Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>StarBloat</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="blog-header">
+                <h2>Blog & News</h2>
+                <div class="post-actions">
+                    <button class="create-post-btn" onclick="openPostForm()">Create New Post</button>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Posts</button>
+                        <button class="filter-btn" data-filter="blog">Blog Posts</button>
+                        <button class="filter-btn" data-filter="news">News</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Post Creation Form Modal -->
+            <div id="postFormModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-modal" onclick="closePostForm()">&times;</span>
+                    <h3>Create New Post</h3>
+                    <form id="postForm">
+                        <div class="form-group">
+                            <label for="postType">Post Type:</label>
+                            <select id="postType" required>
+                                <option value="blog">Blog Post</option>
+                                <option value="news">News</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="postTitle">Title:</label>
+                            <input type="text" id="postTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postContent">Content:</label>
+                            <textarea id="postContent" rows="10" required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">Create Post</button>
+                            <button type="button" class="cancel-btn" onclick="closePostForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <section class="blog-grid">
+                <!-- Blog posts will be dynamically loaded here -->
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 StarBloat. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="blog.js"></script>
+</body>
+</html> 
