@@ -570,4 +570,115 @@ nav a.active {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Add these styles for individual post pages */
+.post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.post-content article {
+    background: #112240;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+}
+
+.post-content h1 {
+    font-size: 2.5rem;
+    color: #ccd6f6;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.post-content .post-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.post-content .post-type {
+    background: #1a1a1a;
+    color: #64ffda;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.post-content .post-date {
+    color: #8892b0;
+}
+
+.post-body {
+    line-height: 1.8;
+}
+
+.post-body p {
+    margin-bottom: 1.5rem;
+    color: #8892b0;
+}
+
+.post-body h2 {
+    color: #ccd6f6;
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+}
+
+.post-body h3 {
+    color: #ccd6f6;
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.post-body ul {
+    margin: 1rem 0 1.5rem 2rem;
+    color: #8892b0;
+}
+
+.post-body li {
+    margin-bottom: 0.5rem;
+}
+
+.post-body pre {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.post-body code {
+    font-family: 'Space Mono', monospace;
+    color: #64ffda;
+}
+
+/* Add responsive styles for post content */
+@media (max-width: 768px) {
+    .post-content {
+        padding: 1rem;
+    }
+
+    .post-content article {
+        padding: 1.5rem;
+    }
+
+    .post-content h1 {
+        font-size: 2rem;
+    }
+
+    .post-body h2 {
+        font-size: 1.5rem;
+    }
+
+    .post-body h3 {
+        font-size: 1.2rem;
+    }
 } 
