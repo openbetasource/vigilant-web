@@ -22,4 +22,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    const readMoreButtons = document.querySelectorAll('.read-more');
+
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const postCard = this.closest('.post-card');
+            const preview = postCard.querySelector('.post-preview');
+            const fullContent = postCard.querySelector('.post-full-content');
+            
+            if (fullContent.classList.contains('hidden')) {
+                preview.style.display = 'none';
+                fullContent.classList.remove('hidden');
+                postCard.classList.add('expanded');
+                this.textContent = '← Read Less';
+            } else {
+                preview.style.display = 'block';
+                fullContent.classList.add('hidden');
+                postCard.classList.remove('expanded');
+                this.textContent = 'Read More →';
+            }
+        });
+    });
 }); 

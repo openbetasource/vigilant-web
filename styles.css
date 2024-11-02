@@ -301,4 +301,65 @@ nav a.active {
         justify-content: center;
         gap: 1rem;
     }
+}
+
+/* Add these new styles for the expanded post system */
+
+.post-full-content {
+    margin: 1rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid #2a3f5f;
+}
+
+.hidden {
+    display: none;
+}
+
+.post-card {
+    /* Update existing post-card styles */
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.post-card.expanded {
+    transform: scale(1.02);
+}
+
+.view-full-post {
+    display: inline-block;
+    margin-left: 1rem;
+    color: #8892b0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.view-full-post:hover {
+    color: #64ffda;
+}
+
+/* Add styles for the post content */
+.post-full-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    color: #8892b0;
+}
+
+.post-full-content p {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    background: none;
+    border: none;
+    color: #64ffda;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    padding-left: 5px;
 } 
