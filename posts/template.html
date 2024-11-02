@@ -7,9 +7,10 @@
     <title>Post Title - StarBloat</title>
     <link rel="stylesheet" href="../../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="post-type" content="blog"> <!-- Change to "news" for news posts -->
-    <meta name="post-date" content="March 20, 2024"> <!-- Update the date -->
-    <meta name="post-category" content="Development"> <!-- Main category -->
+    <!-- Change post-type to match your content (blog or news) -->
+    <meta name="post-type" content="blog">
+    <meta name="post-date" content="March 20, 2024">
+    <meta name="post-category" content="Development">
     <meta name="post-preview" content="A brief preview of your post content goes here...">
 </head>
 <body>
@@ -30,7 +31,8 @@
                 <h1>Your Post Title</h1>
                 <div class="post-meta">
                     <span class="post-date">March 20, 2024</span>
-                    <span class="post-type">BLOG</span>
+                    <!-- This should match the post-type meta tag above -->
+                    <span class="post-type" data-type="blog">BLOG</span>
                 </div>
                 
                 <div class="post-body">
@@ -58,5 +60,15 @@
             <p>© 2024 StarBloat. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        // Add this script to automatically set the correct post type
+        document.addEventListener('DOMContentLoaded', function() {
+            const postType = document.querySelector('meta[name="post-type"]').content;
+            const postTypeSpan = document.querySelector('.post-type');
+            postTypeSpan.textContent = postType.toUpperCase();
+            postTypeSpan.dataset.type = postType;
+        });
+    </script>
 </body>
 </html> 
