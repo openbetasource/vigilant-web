@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 type: doc.querySelector('meta[name="post-type"]').content,
                 date: doc.querySelector('meta[name="post-date"]').content,
                 preview: doc.querySelector('meta[name="post-preview"]').content,
-                tags: doc.querySelector('meta[name="post-tags"]')?.content.split(',') || [],
                 category: doc.querySelector('meta[name="post-category"]')?.content,
                 link: url
             };
@@ -83,11 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>${post.title}</h3>
                 <div class="post-preview">
                     <p>${post.preview}</p>
-                </div>
-                <div class="post-tags">
-                    ${post.tags.map(tag => `
-                        <span class="tag" data-tag="${tag}">#${tag}</span>
-                    `).join('')}
                 </div>
                 <a href="${post.link}" class="read-more">Read More →</a>
             `;
