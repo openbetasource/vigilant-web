@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const postFiles = [
             'posts/blog/my-first-blog-post.html',
             'posts/news/my-first-news-post.html',
-            'posts/news/my-second-news-post.html'
             // Add new post files here
         ];
 
@@ -72,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const postElement = document.createElement('article');
             postElement.className = `post-card ${post.type}`;
             postElement.style.animationDelay = `${index * 0.1}s`;
+            postElement.style.cursor = 'pointer';
             
             postElement.innerHTML = `
                 <div class="post-tag">${post.type.toUpperCase()}</div>
@@ -83,8 +83,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="post-preview">
                     <p>${post.preview}</p>
                 </div>
-                <a href="${post.link}" class="read-more">Read More →</a>
+                <span class="read-more">Read More →</span>
             `;
+            
+            postElement.addEventListener('click', () => {
+                window.location.href = post.link;
+            });
             
             postsContainer.appendChild(postElement);
         });
