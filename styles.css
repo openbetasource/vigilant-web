@@ -1,10 +1,10 @@
 :root {
     --primary: #E30613; /* K-bygg red */
     --secondary: #333333; /* Dark gray */
-    --background: #8B0000; /* K-bygg's brownish/red color */
+    --background: #651D32; /* New background color */
     --text: #FFFFFF; /* White text for better contrast */
     --text-light: #E5E5E5; /* Light gray text */
-    --border: #9B1010; /* Slightly lighter than background for subtle borders */
+    --border: #752D42; /* Slightly lighter than background for subtle borders */
     --hover: #B30510; /* Darker red for hover states */
     --card-bg: #FFFFFF; /* White background for cards */
 }
