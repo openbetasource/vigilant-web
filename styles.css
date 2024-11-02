@@ -373,4 +373,215 @@ nav a.active {
 
 .read-more:hover {
     padding-left: 5px;
+}
+
+/* Add these new styles to your existing styles.css */
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.post-category {
+    background: #1a1a1a;
+    color: #ff64da;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.tag {
+    color: #64ffda;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.tag:hover {
+    color: #ff64da;
+}
+
+.post-card {
+    /* Update existing post-card styles */
+    display: flex;
+    flex-direction: column;
+}
+
+.post-preview {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.post-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ccd6f6;
+    transition: color 0.3s ease;
+}
+
+.post-card:hover h3 {
+    color: #64ffda;
+}
+
+/* Add animation for post cards */
+.post-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add these new styles to your existing styles.css */
+
+.post-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #112240;
+    border-radius: 8px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #1a1a1a;
+    border-radius: 4px;
+    padding: 0.5rem;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-container input {
+    background: none;
+    border: none;
+    color: #e6f1ff;
+    padding: 0.5rem;
+    width: 100%;
+    font-family: inherit;
+}
+
+.search-container input:focus {
+    outline: none;
+}
+
+.search-container button {
+    background: none;
+    border: none;
+    color: #64ffda;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.search-container button:hover {
+    transform: scale(1.1);
+}
+
+.sort-container select {
+    background: #1a1a1a;
+    border: 1px solid #2a3f5f;
+    color: #e6f1ff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.active-filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #112240;
+    border-radius: 8px;
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filter-tag {
+    background: #1a1a1a;
+    color: #64ffda;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-tag button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.clear-filters {
+    background: none;
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clear-filters:hover {
+    background: #ff6b6b22;
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #8892b0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Enhanced animations */
+.post-card {
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 } 

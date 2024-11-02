@@ -27,10 +27,42 @@
                 <p>Building my first website and documenting the journey</p>
             </section>
 
-            <section class="content-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="news">News</button>
-                <button class="filter-btn" data-filter="blog">Blog</button>
+            <section class="post-controls">
+                <!-- Search bar -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search posts...">
+                    <button id="searchButton">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Sort options -->
+                <div class="sort-container">
+                    <select id="sortSelect">
+                        <option value="date-desc">Newest First</option>
+                        <option value="date-asc">Oldest First</option>
+                        <option value="title">Title A-Z</option>
+                        <option value="category">Category</option>
+                    </select>
+                </div>
+
+                <!-- Filter buttons -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="news">News</button>
+                    <button class="filter-btn" data-filter="blog">Blog</button>
+                </div>
+            </section>
+
+            <!-- Active filters display -->
+            <section class="active-filters hidden">
+                <div class="filter-tags">
+                    <!-- Active filters will be added here -->
+                </div>
+                <button class="clear-filters">Clear All</button>
             </section>
 
             <section class="posts">
