@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
             date: "November 2, 2024",
             preview: "Welcome to my first news post! I'm excited to share my journey in web development.",
             link: "posts/news/my-first-news-post.html"
+        },
+        {
+            title: "My Second News Post",
+            type: "news",
+            date: "November 2, 2024",
+            preview: "Welcome to my second news post! I'm excited to share my journey in web development.",
+            link: "posts/news/my-second-news-post.html"
         }
         // Add more posts here as you create them
     ];
