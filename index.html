@@ -13,7 +13,7 @@
             <h1>StarBloat</h1>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -26,11 +26,48 @@
                 <h2>Welcome to My Digital Space</h2>
                 <p>Building my first website and documenting the journey</p>
             </section>
+
+            <section class="content-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="news">News</button>
+                <button class="filter-btn" data-filter="blog">Blog</button>
+            </section>
+
+            <section class="posts">
+                <!-- News Post Example -->
+                <article class="post-card news">
+                    <div class="post-tag">NEWS</div>
+                    <div class="post-date">March 15, 2024</div>
+                    <h3>Website Launch Announcement</h3>
+                    <p>Excited to announce the launch of my personal website! Stay tuned for updates on my journey.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <!-- Blog Post Example -->
+                <article class="post-card blog">
+                    <div class="post-tag">BLOG</div>
+                    <div class="post-date">March 14, 2024</div>
+                    <h3>My Journey Into Web Development</h3>
+                    <p>Here's what I've learned in my first week of coding and what inspired me to start this journey.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <!-- News Post Example -->
+                <article class="post-card news">
+                    <div class="post-tag">NEWS</div>
+                    <div class="post-date">March 13, 2024</div>
+                    <h3>First Project Update</h3>
+                    <p>Check out the progress on my weather app project. New features coming soon!</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+            </section>
         </main>
 
         <footer>
             <p>© 2024 StarBloat. All rights reserved.</p>
         </footer>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html> 
