@@ -1,47 +1,51 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Filter buttons functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const posts = document.querySelectorAll('.post-card');
+    const postsContainer = document.querySelector('.posts');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
+    // List of all your posts with their metadata
+    const posts = [
+        {
+            title: "My First Blog Post",
+            type: "blog",
+            date: "November 2, 2024",
+            preview: "Welcome to my first blog post! I'm excited to share my journey in web development.",
+            link: "posts/blog/my-first-blog-post.html"
+        },
+        // Add more posts here as you create them
+    ];
 
-            const filterValue = button.getAttribute('data-filter');
+    // Function to display posts
+    function displayPosts(filter = 'all') {
+        postsContainer.innerHTML = ''; // Clear existing posts
 
-            posts.forEach(post => {
-                if (filterValue === 'all') {
-                    post.style.display = 'block';
-                } else if (post.classList.contains(filterValue)) {
-                    post.style.display = 'block';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    const readMoreButtons = document.querySelectorAll('.read-more');
-
-    readMoreButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const postCard = this.closest('.post-card');
-            const preview = postCard.querySelector('.post-preview');
-            const fullContent = postCard.querySelector('.post-full-content');
-            
-            if (fullContent.classList.contains('hidden')) {
-                preview.style.display = 'none';
-                fullContent.classList.remove('hidden');
-                postCard.classList.add('expanded');
-                this.textContent = '← Read Less';
-            } else {
-                preview.style.display = 'block';
-                fullContent.classList.add('hidden');
-                postCard.classList.remove('expanded');
-                this.textContent = 'Read More →';
+        posts.forEach(post => {
+            if (filter === 'all' || filter === post.type) {
+                const postElement = `
+                    <article class="post-card ${post.type}">
+                        <div class="post-tag">${post.type.toUpperCase()}</div>
+                        <div class="post-date">${post.date}</div>
+                        <h3>${post.title}</h3>
+                        <div class="post-preview">
+                            <p>${post.preview}</p>
+                        </div>
+                        <a href="${post.link}" class="read-more">Read More →</a>
+                    </article>
+                `;
+                postsContainer.innerHTML += postElement;
             }
         });
+    }
+
+    // Add click handlers to filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            displayPosts(button.getAttribute('data-filter'));
+        });
     });
+
+    // Initial load of all posts
+    displayPosts('all');
 }); 
