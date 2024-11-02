@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const postsContainer = document.querySelector('.posts');
-    const searchInput = document.getElementById('searchInput');
     const sortSelect = document.getElementById('sortSelect');
-    const activeFilters = document.querySelector('.active-filters');
     let currentPosts = [];
 
     // Function to fetch and parse HTML files
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
             'posts/news/my-first-news-post.html',
             'posts/news/my-second-news-post.html'
             // Add new post files here
-            // You can also fetch this list from a directory if your server supports it
         ];
 
         const posts = await Promise.all(
@@ -44,14 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
         );
 
         return posts.filter(post => post !== null);
-    }
-
-    // Search functionality
-    function searchPosts(posts, searchTerm) {
-        return posts.filter(post => {
-            const searchContent = `${post.title} ${post.preview} ${post.tags.join(' ')} ${post.category}`.toLowerCase();
-            return searchContent.includes(searchTerm.toLowerCase());
-        });
     }
 
     // Sort functionality
@@ -65,20 +54,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'title':
                     return a.title.localeCompare(b.title);
                 case 'category':
-                    return a.category.localeCompare(b.category);
+                    return (a.category || '').localeCompare(b.category || '');
                 default:
                     return 0;
             }
         });
     }
 
-    // Enhanced display function with animations
-    function displayPosts(posts, filter = 'all', selectedTag = null) {
+    // Display function with animations
+    function displayPosts(posts, filter = 'all') {
         postsContainer.innerHTML = '';
         
         const filteredPosts = posts.filter(post => {
-            return (filter === 'all' || filter === post.type) && 
-                   (!selectedTag || post.tags.includes(selectedTag));
+            return filter === 'all' || filter === post.type;
         });
 
         filteredPosts.forEach((post, index) => {
@@ -106,31 +94,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             postsContainer.appendChild(postElement);
         });
-
-        // Show no results message if needed
-        if (filteredPosts.length === 0) {
-            postsContainer.innerHTML = `
-                <div class="no-results">
-                    <h3>No posts found</h3>
-                    <p>Try adjusting your search or filters</p>
-                </div>
-            `;
-        }
     }
 
     // Event listeners
-    searchInput.addEventListener('input', debounce(function() {
-        const searchResults = searchPosts(currentPosts, this.value);
-        const sortBy = sortSelect.value;
-        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
-        displayPosts(sortPosts(searchResults, sortBy), activeFilter);
-        updateActiveFilters();
-    }, 300));
-
     sortSelect.addEventListener('change', function() {
         const sortedPosts = sortPosts(currentPosts, this.value);
         const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
         displayPosts(sortedPosts, activeFilter);
+    });
+
+    // Filter button listeners
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            displayPosts(currentPosts, button.getAttribute('data-filter'));
+        });
     });
 
     // Initialize
@@ -138,17 +117,4 @@ document.addEventListener('DOMContentLoaded', function() {
         currentPosts = posts;
         displayPosts(sortPosts(posts, 'date-desc'), 'all');
     });
-
-    // Utility function for debouncing
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func.apply(this, args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
 }); 

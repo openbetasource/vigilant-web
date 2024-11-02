@@ -453,50 +453,12 @@ nav a.active {
 
 .post-controls {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     margin: 2rem 0;
     padding: 1rem;
     background: #112240;
     border-radius: 8px;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    background: #1a1a1a;
-    border-radius: 4px;
-    padding: 0.5rem;
-    flex: 1;
-    max-width: 400px;
-}
-
-.search-container input {
-    background: none;
-    border: none;
-    color: #e6f1ff;
-    padding: 0.5rem;
-    width: 100%;
-    font-family: inherit;
-}
-
-.search-container input:focus {
-    outline: none;
-}
-
-.search-container button {
-    background: none;
-    border: none;
-    color: #64ffda;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: transform 0.3s ease;
-}
-
-.search-container button:hover {
-    transform: scale(1.1);
 }
 
 .sort-container select {
