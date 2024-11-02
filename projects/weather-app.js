@@ -21,8 +21,11 @@ const formatTemp = temp => `${Math.round(temp)}°C`;
 // Get weather data
 async function getWeatherData(city) {
     try {
+        // Encode the city name to handle Swedish characters
+        const encodedCity = encodeURIComponent(city);
+        
         // Get coordinates first
-        const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`;
+        const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodedCity},SE&limit=1&appid=${API_KEY}`;
         const geoResponse = await fetch(geoUrl);
         const geoData = await geoResponse.json();
 
@@ -31,13 +34,14 @@ async function getWeatherData(city) {
         const { lat, lon } = geoData[0];
 
         // Get current weather and forecast
-        const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&lang=sv&appid=${API_KEY}`;
+        const weatherUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&lang=sv&appid=${API_KEY}`;
         const weatherResponse = await fetch(weatherUrl);
         const weatherData = await weatherResponse.json();
 
-        updateWeatherDisplay(weatherData, geoData[0].name);
+        updateWeatherDisplay(weatherData, geoData[0].local_names?.sv || geoData[0].name);
     } catch (error) {
-        showError(error.message);
+        console.error('Error:', error);
+        showError('Kunde inte hämta väderdata. Försök igen.');
     }
 }
 
