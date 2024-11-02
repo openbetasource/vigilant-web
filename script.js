@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sortSelect = document.getElementById('sortSelect');
     let currentPosts = [];
 
-    // Function to fetch and parse HTML files
     async function fetchPostMetadata(url) {
         try {
             const response = await fetch(url);
@@ -21,17 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 link: url
             };
         } catch (error) {
-            console.error(`Error loading post from ${url}:`, error);
+            console.error(`Fel vid laddning av inlägg från ${url}:`, error);
             return null;
         }
     }
 
-    // Function to load all posts
     async function loadAllPosts() {
         const postFiles = [
             'posts/blog/my-first-blog-post.html',
             'posts/news/my-first-news-post.html',
-            // Add new post files here
+            // Lägg till nya inläggsfiler här
         ];
 
         const posts = await Promise.all(
@@ -41,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return posts.filter(post => post !== null);
     }
 
-    // Sort functionality
     function sortPosts(posts, sortBy) {
         return [...posts].sort((a, b) => {
             switch(sortBy) {
@@ -50,16 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'date-asc':
                     return new Date(a.date) - new Date(b.date);
                 case 'title':
-                    return a.title.localeCompare(b.title);
+                    return a.title.localeCompare(b.title, 'sv');
                 case 'category':
-                    return (a.category || '').localeCompare(b.category || '');
+                    return (a.category || '').localeCompare(b.category || '', 'sv');
                 default:
                     return 0;
             }
         });
     }
 
-    // Display function with animations
     function displayPosts(posts, filter = 'all') {
         postsContainer.innerHTML = '';
         
@@ -73,8 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
             postElement.style.animationDelay = `${index * 0.1}s`;
             postElement.style.cursor = 'pointer';
             
+            const postType = post.type === 'blog' ? 'BLOGG' : 'NYHET';
+            
             postElement.innerHTML = `
-                <div class="post-tag">${post.type.toUpperCase()}</div>
+                <div class="post-tag">${postType}</div>
                 <div class="post-meta">
                     <span class="post-date">${post.date}</span>
                     ${post.category ? `<span class="post-category">${post.category}</span>` : ''}
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="post-preview">
                     <p>${post.preview}</p>
                 </div>
-                <span class="read-more">Read More →</span>
+                <span class="read-more">Läs mer →</span>
             `;
             
             postElement.addEventListener('click', () => {
@@ -94,14 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Event listeners
     sortSelect.addEventListener('change', function() {
         const sortedPosts = sortPosts(currentPosts, this.value);
         const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
         displayPosts(sortedPosts, activeFilter);
     });
 
-    // Filter button listeners
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -110,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize
     loadAllPosts().then(posts => {
         currentPosts = posts;
         displayPosts(sortPosts(posts, 'date-desc'), 'all');
